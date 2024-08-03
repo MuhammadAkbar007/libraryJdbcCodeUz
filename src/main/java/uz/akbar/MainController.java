@@ -7,6 +7,8 @@ import java.util.Scanner;
  */
 public class MainController {
 
+	private Scanner sc = new Scanner(System.in);
+
 	public void start() {
 
 		new TableRepository().createTables();
@@ -30,7 +32,7 @@ public class MainController {
 					System.out.println("By Category");
 					break;
 				case 4:
-					System.out.println("Login");
+					login();
 					break;
 				case 5:
 					System.out.println("Registration");
@@ -46,6 +48,8 @@ public class MainController {
 					break;
 			}
 		}
+
+		sc.close();
 	}
 
 	public void showMenu() {
@@ -60,8 +64,18 @@ public class MainController {
 	}
 
 	public int getAction() {
-		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter action => ");
 		return sc.nextInt();
+	}
+
+	public void login() {
+		sc = new Scanner(System.in);
+		System.out.print("Enter login => ");
+		String login = sc.nextLine();
+
+		System.out.print("Enter password => ");
+		String password = sc.nextLine();
+
+		new AuthService().login(login, password);
 	}
 }

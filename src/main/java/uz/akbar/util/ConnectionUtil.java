@@ -1,4 +1,4 @@
-package uz.akbar;
+package uz.akbar.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

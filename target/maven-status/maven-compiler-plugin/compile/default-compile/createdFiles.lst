@@ -1,10 +1,11 @@
 uz/akbar/MainController.class
+uz/akbar/util/ConnectionUtil.class
 uz/akbar/Profile.class
 uz/akbar/ProfileRepository.class
-uz/akbar/ConnectionUtil.class
 uz/akbar/Main.class
 uz/akbar/enums/ProfileRole.class
 uz/akbar/InitService.class
 uz/akbar/TableRepository.class
 uz/akbar/enums/ProfileStatus.class
+uz/akbar/AuthService.class
 uz/akbar/util/MD5Util.class
