@@ -7,75 +7,78 @@ import java.util.Scanner;
  */
 public class MainController {
 
-	private Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
-	public void start() {
+    public void start() {
 
-		new TableRepository().createTables();
-		new InitService().initAdmin();
+        new TableRepository().createTables();
 
-		boolean loop = true;
-		while (loop) {
+        InitService initService = new InitService();
+        initService.initAdmin();
+        initService.initTestStudent();
 
-			showMenu();
-			int action = getAction();
-			System.out.println();
+        boolean loop = true;
+        while (loop) {
 
-			switch (action) {
-				case 1:
-					System.out.println("Book list");
-					break;
-				case 2:
-					System.out.println("Search");
-					break;
-				case 3:
-					System.out.println("By Category");
-					break;
-				case 4:
-					login();
-					break;
-				case 5:
-					System.out.println("Registration");
-					break;
-				case 0:
-					System.out.println("Goodbye!");
-					System.out.println();
-					loop = false;
-					break;
+            showMenu();
+            int action = getAction();
+            System.out.println();
 
-				default:
-					System.out.println("Wrong input!");
-					break;
-			}
-		}
+            switch (action) {
+                case 1:
+                    System.out.println("Book list");
+                    break;
+                case 2:
+                    System.out.println("Search");
+                    break;
+                case 3:
+                    System.out.println("By Category");
+                    break;
+                case 4:
+                    login();
+                    break;
+                case 5:
+                    System.out.println("Registration");
+                    break;
+                case 0:
+                    System.out.println("Goodbye!");
+                    System.out.println();
+                    loop = false;
+                    break;
 
-		sc.close();
-	}
+                default:
+                    System.out.println("Wrong input!");
+                    break;
+            }
+        }
 
-	public void showMenu() {
-		System.out.println();
-		System.out.println("*** Main Menu ***");
-		System.out.println("1. Book List");
-		System.out.println("2. Search");
-		System.out.println("3. By Category");
-		System.out.println("4. Login");
-		System.out.println("5. Registration");
-		System.out.println("0. Exit");
-	}
+        sc.close();
+    }
 
-	public int getAction() {
-		System.out.print("Enter action => ");
-		return sc.nextInt();
-	}
+    public void showMenu() {
+        System.out.println();
+        System.out.println("*** Main Menu ***");
+        System.out.println("1. Book List");
+        System.out.println("2. Search");
+        System.out.println("3. By Category");
+        System.out.println("4. Login");
+        System.out.println("5. Registration");
+        System.out.println("0. Exit");
+    }
 
-	public void login() {
-		sc = new Scanner(System.in);
-		System.out.print("Enter login => ");
-		String login = sc.nextLine();
+    public int getAction() {
+        System.out.print("Enter action => ");
+        return sc.nextInt();
+    }
 
-		System.out.print("Enter password => ");
-		String password = sc.nextLine();
+    public void login() {
+        sc = new Scanner(System.in);
+        System.out.print("Enter login => ");
+        String login = sc.nextLine();
 
-		new AuthService().login(login, password);
-	}
+        System.out.print("Enter password => ");
+        String password = sc.nextLine();
+
+        new AuthService().login(login, password);
+    }
 }

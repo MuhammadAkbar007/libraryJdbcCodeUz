@@ -27,9 +27,12 @@ public class AuthService {
 
 		/* redirect */
 		if (profile.getRole().equals(ProfileRole.STUDENT)) {
-			// studentController
-		} else {
-			// staffController
+			StudentController studentController = new StudentController();
+			studentController.start();
+		} else if (profile.getRole().equals(ProfileRole.ADMIN)) {
+			new AdminController().start();
+		} else if (profile.getRole().equals(ProfileRole.STAFF)) {
+			new StaffController().start();
 		}
 	}
 }
